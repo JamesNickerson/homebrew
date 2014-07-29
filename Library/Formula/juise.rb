@@ -24,7 +24,9 @@ class Juise < Formula
                           "--prefix=#{prefix}",
                           "--with-libssh2-prefix=#{HOMEBREW_PREFIX}",
                           "--with-sqlite3-prefix=#{Formula["sqlite"].opt_prefix}",
-                          "--enable-libedit"
+                          "--enable-libedit",
+                          "CFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future",
+                          "CPPFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future"
     system "make install"
   end
 end
